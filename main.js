@@ -27,13 +27,61 @@ var pendragonData = [
 	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pendragon-fiends.jpg"
 ];
 
+var piratesData = [
+	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pirates-captain.jpg",
+	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pirates-figurehead.jpg",
+	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pirates-deckchief.jpg",
+	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pirates-meleechief.jpg",
+	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pirates-masterchief.jpg",
+	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pirates-fickerfinder.jpg",
+	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pirates-riggingbots.jpg",
+	"http://themaverickmuse.com/wp-content/uploads/2014/10/oba-card-pirates-botlettii.jpg",
+	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pirates-riggers.jpg",
+	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pirates-deckers.jpg",
+	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pirates-deckers.jpg",
+	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pirates-deckers.jpg",
+	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pirates-spotters.jpg",
+	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pirates-spotters.jpg",
+	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pirates-spotters.jpg",
+	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pirates-smokers.jpg",
+	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pirates-smokers.jpg",
+	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pirates-smokers.jpg",
+	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pirates-bruisers.jpg",
+	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pirates-bruisers.jpg",
+	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pirates-bruisers.jpg",
+	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pirates-breakers.jpg",
+	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pirates-breakers.jpg",
+	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pirates-breakers.jpg"
+];
 
-(function() {
+(function(){
+	$('#pirateData').click(function(){
+		data = piratesData;
+		init();
+	});
+	$('#pendragonsData').click(function(){
+		data = pendragonData;
+		init();
+	});	
+})()
+
+
+function init() {
+	//show/hide elements
+	$('#statusBar').show();
+	$('#buttbar').remove();
+	uiUpdate();
+
 	//populate images
-	while (pendragonData.length > 0) {
-		var tempUrl = pendragonData.splice(Math.floor(Math.random() * pendragonData.length), 1);
-		$('#thediv').prepend('<img src="' + tempUrl + '"><img>');
+	while (data.length > 0) {
+		var tempUrl = data.splice(Math.floor(Math.random() * data.length), 1);
+		$('#thediv').prepend('<img src="' + tempUrl + '"></img>');
 	}
+
+	bindEvents();
+}
+
+function bindEvents(){
 	// bind some stuff on images
 	$('img').click(function() {
 		if ($(this).hasClass('selected')) {
@@ -52,6 +100,21 @@ var pendragonData = [
 			//select card
 			$(this).addClass('selected');
 		}
-
+		uiUpdate();
 	});
-})(this)
+
+	//bind buttons
+	$('#recoverBtn').click(function(){
+		if($('img.discarded').length > 0){
+			$('img.discarded:first').removeClass('discarded');
+		} else {
+			alert('no cards to recover');
+		}
+		uiUpdate();
+	});
+}
+
+function uiUpdate(){
+	//update HP
+	$('#hp').html('HP:' + ($('img').length - $('img.discarded').length));
+}

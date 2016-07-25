@@ -17,9 +17,11 @@
     img.discarded {
       display: none;
     }
-    #s{
+    #statusBar{
+      display: none;
       position: fixed;
-      right: 0px;
+      right: 5px;
+      background-color:rgba(255, 255, 255, 0.5)
     }
     #thediv{
       width: 100%;
@@ -27,7 +29,14 @@
     }
   </style>
   <body>
-    <div id="s">something</div>
+    <div id="buttbar">
+      <button id="pirateData">Pirates</button>
+      <button id="pendragonsData">Pendragons</button>
+    </div>
+    <div id="statusBar">
+        <button id='recoverBtn'>Recover</button>
+        <p id='hp'>asdadas</p>
+    </div>
     <div id="thediv"></div>
   </body>
   <script
