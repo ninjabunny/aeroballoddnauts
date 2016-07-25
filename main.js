@@ -1,0 +1,30 @@
+var pendragonData = [
+	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pendragon-captain.jpg",
+	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pendragon-figurehead.jpg",
+	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pendragon-deckmarshall.jpg",
+	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pendragon-gunmarshall.jpg",
+	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pendragon-squadmarshall.jpg",
+	"http://themaverickmuse.com/wp-content/uploads/2014/11/oba-card-pendragon-chivvierr.jpg",
+	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pendragon-gunschampion.jpg",
+	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pendragon-squadchampion.jpg",
+	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pendragon-shadowcaster.jpg",
+	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pendragon-gunbots.jpg",
+	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pendragon-fusebots.jpg",
+	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pendragon-deckpaws.jpg",
+	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pendragon-deckpaws.jpg",
+	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pendragon-deckpaws.jpg",
+	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pendragon-marksmen.jpg",
+	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pendragon-marksmen.jpg",
+	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pendragon-marksmen.jpg",
+	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pendragon-cannoneers.jpg",
+	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pendragon-cannoneers.jpg",
+	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pendragon-cannoneers.jpg",
+	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pendragon-armouredfiends.jpg",
+	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pendragon-armouredfiends.jpg",
+	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pendragon-armouredfiends.jpg",
+	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pendragon-fiends.jpg",
+	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pendragon-fiends.jpg",
+	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pendragon-fiends.jpg"
+	];
+
+alert(pendragonData.length)
