@@ -3,6 +3,12 @@
     <title>Aeroball Oddnautsn</title>
   </head>
   <style>
+    body {
+      width: auto;
+      overflow-x: scroll;
+      overflow-y: hidden;
+      white-space: nowrap;
+    }
     img.selected {
       border: #8BC34A;
       border-width: thick;
@@ -11,8 +17,17 @@
     img.discarded {
       display: none;
     }
+    #s{
+      position: fixed;
+      right: 0px;
+    }
+    #thediv{
+      width: 100%;
+      overflow-x: auto;
+    }
   </style>
   <body>
+    <div id="s">something</div>
     <div id="thediv"></div>
   </body>
   <script
