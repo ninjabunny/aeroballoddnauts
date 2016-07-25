@@ -25,6 +25,33 @@ var pendragonData = [
 	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pendragon-fiends.jpg",
 	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pendragon-fiends.jpg",
 	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pendragon-fiends.jpg"
-	];
+];
 
-alert(pendragonData.length)
+
+(function() {
+	//populate images
+	while (pendragonData.length > 0) {
+		var tempUrl = pendragonData.splice(Math.floor(Math.random() * pendragonData.length), 1);
+		$('#thediv').prepend('<img src="' + tempUrl + '"><img>');
+	}
+	// bind some stuff on images
+	$('img').click(function() {
+		if ($(this).hasClass('selected')) {
+			// discard card
+			$(this)
+				.removeClass('selected')
+				.addClass('discarded')
+				.appendTo($('#thediv'));
+		} else if ($('img').hasClass('selected')) {
+			//rig
+			var tempUrl = $(this).attr('src');
+			$(this).attr('src', $('img.selected').attr('src'));
+			$('img.selected').attr('src', tempUrl).removeClass('selected');
+
+		} else {
+			//select card
+			$(this).addClass('selected');
+		}
+
+	});
+})(this)
