@@ -53,6 +53,7 @@ var piratesData = [
 	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pirates-breakers.jpg",
 	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pirates-breakers.jpg"
 ];
+toastr.options.positionClass = "toast-top-center";
 
 (function(){
 	$('#pirateData').click(function(){
@@ -70,7 +71,6 @@ function init() {
 	//show/hide elements
 	$('#statusBar').show();
 	$('#buttbar').remove();
-	uiUpdate();
 
 	//populate images
 	while (data.length > 0) {
@@ -79,6 +79,7 @@ function init() {
 	}
 
 	bindEvents();
+	uiUpdate();
 }
 
 function bindEvents(){
@@ -90,25 +91,28 @@ function bindEvents(){
 				.removeClass('selected')
 				.addClass('discarded')
 				.appendTo($('#thediv'));
+			// toastr.success('Card discarded');
+			uiUpdate();
 		} else if ($('img').hasClass('selected')) {
 			//rig
 			var tempUrl = $(this).attr('src');
 			$(this).attr('src', $('img.selected').attr('src'));
 			$('img.selected').attr('src', tempUrl).removeClass('selected');
-
+			// toastr.success('Cards have switched');
 		} else {
 			//select card
 			$(this).addClass('selected');
 		}
-		uiUpdate();
 	});
 
 	//bind buttons
 	$('#recoverBtn').click(function(){
 		if($('img.discarded').length > 0){
 			$('img.discarded:first').removeClass('discarded');
+			// toastr.success('Have fun storming the castle!', 'Miracle Max Says');
 		} else {
 			alert('no cards to recover');
+			// toastr.error('I do not think that word means what you think it means.', 'Inconceivable!');
 		}
 		uiUpdate();
 	});
@@ -117,4 +121,5 @@ function bindEvents(){
 function uiUpdate(){
 	//update HP
 	$('#hp').html('HP:' + ($('img').length - $('img.discarded').length));
+	// toastr.info('HP: ' + ($('img').length - $('img.discarded').length));
 }

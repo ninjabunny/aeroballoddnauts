@@ -1,47 +1,62 @@
 <html>
   <head>
-    <title>Aeroball Oddnautsn</title>
+    <title>Aeroball Oddnauts</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
   </head>
   <style>
     body {
+      margin: 0;
       width: auto;
       overflow-x: scroll;
       overflow-y: hidden;
       white-space: nowrap;
     }
+    img {
+      border: #FFFFFF;
+      /*border-width: thick;*/
+      border-style: solid;
+    }
     img.selected {
       border: #8BC34A;
-      border-width: thick;
+      /*border-width: thick;*/
       border-style: solid;
     }
     img.discarded {
       display: none;
     }
     #statusBar{
+      padding: 5px;
       display: none;
+      background-color:rgba(0, 0, 0, 0.5);
+      overflow-x: none;
+      top: 0px;
+      left: 0px;
       position: fixed;
-      right: 5px;
-      background-color:rgba(255, 255, 255, 0.5)
     }
     #thediv{
       width: 100%;
       overflow-x: auto;
     }
+    #hp {
+      display: inline;
+      color: red;
+    }
+    #recoverBtn {
+    }
   </style>
   <body>
-    <div id="buttbar">
-      <button id="pirateData">Pirates</button>
-      <button id="pendragonsData">Pendragons</button>
-    </div>
     <div id="statusBar">
         <button id='recoverBtn'>Recover</button>
         <p id='hp'>asdadas</p>
     </div>
+    <div id="buttbar">
+      <button id="pirateData">Pirates</button>
+      <button id="pendragonsData">Pendragons</button>
+    </div>
     <div id="thediv"></div>
   </body>
   <script
-  src="https://code.jquery.com/jquery-3.1.0.min.js"
-  integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="
-  crossorigin="anonymous"></script>
+  src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
   <script src="main.js"></script>
 </html>
