@@ -24,7 +24,9 @@ var pendragonData = [
 	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pendragon-armouredfiends.jpg",
 	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pendragon-fiends.jpg",
 	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pendragon-fiends.jpg",
-	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pendragon-fiends.jpg"
+	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pendragon-fiends.jpg",
+	"event",
+	"event"
 ];
 
 var piratesData = [
@@ -53,7 +55,9 @@ var piratesData = [
 	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pirates-bruisers.jpg",
 	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pirates-breakers.jpg",
 	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pirates-breakers.jpg",
-	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pirates-breakers.jpg"
+	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pirates-breakers.jpg",
+	"event",
+	"event"
 ];
 
 var eventData = [
@@ -64,8 +68,6 @@ var eventData = [
 	"event05.jpg",
 	"event06.jpg"
 ];
-
-toastr.options.positionClass = "toast-top-center";
 
 (function(){
 	$('#pirateData').click(function(){
@@ -84,14 +86,16 @@ function init() {
 	$('#statusBar').show();
 	$('#buttbar').remove();
 
-	//add 2 events
-	data.push(eventData.splice(Math.floor(Math.random() * eventData.length), 1));
-	data.push(eventData.splice(Math.floor(Math.random() * eventData.length), 1));
-
 	//populate images
 	while (data.length > 0) {
 		var tempUrl = data.splice(Math.floor(Math.random() * data.length), 1);
-		$('#thediv').prepend('<img src="' + tempUrl + '"></img>');
+		if(tempUrl.toString() === "event"){
+			tempUrl = eventData.splice(Math.floor(Math.random() * eventData.length), 1);
+			$('#thediv').prepend('<img class="event" src="' + tempUrl + '"></img>');
+		} else {
+			$('#thediv').prepend('<img src="' + tempUrl + '"></img>');	
+		}
+		
 	}
 
 	bindEvents();
@@ -102,19 +106,23 @@ function bindEvents(){
 	// bind some stuff on images
 	$('img').click(function() {
 		if ($(this).hasClass('selected')) {
-			// discard card
-			$(this)
-				.removeClass('selected')
-				.addClass('discarded')
-				.appendTo($('#thediv'));
-			// toastr.success('Card discarded');
+			// remove event
+			if($(this).hasClass('event')){
+				$(this).remove();	
+			} else {
+				// discard card
+				$(this)
+					.removeClass('selected')
+					.addClass('discarded')
+					.appendTo($('#thediv'));
+			}
+			
 			uiUpdate();
 		} else if ($('img').hasClass('selected')) {
 			//rig
 			var tempUrl = $(this).attr('src');
 			$(this).attr('src', $('img.selected').attr('src'));
 			$('img.selected').attr('src', tempUrl).removeClass('selected');
-			// toastr.success('Cards have switched');
 		} else {
 			//select card
 			$(this).addClass('selected');
@@ -125,10 +133,8 @@ function bindEvents(){
 	$('#recoverBtn').click(function(){
 		if($('img.discarded').length > 0){
 			$('img.discarded:first').removeClass('discarded');
-			// toastr.success('Have fun storming the castle!', 'Miracle Max Says');
 		} else {
 			alert('no cards to recover');
-			// toastr.error('I do not think that word means what you think it means.', 'Inconceivable!');
 		}
 		uiUpdate();
 	});
@@ -137,5 +143,4 @@ function bindEvents(){
 function uiUpdate(){
 	//update HP
 	$('#hp').html('HP:' + ($('img').length - $('img.discarded').length));
-	// toastr.info('HP: ' + ($('img').length - $('img.discarded').length));
 }
