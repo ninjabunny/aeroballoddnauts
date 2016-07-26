@@ -55,6 +55,16 @@ var piratesData = [
 	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pirates-breakers.jpg",
 	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pirates-breakers.jpg"
 ];
+
+var eventData = [
+	"event01.jpg",
+	"event02.jpg",
+	"event03.jpg",
+	"event04.jpg",
+	"event05.jpg",
+	"event06.jpg"
+];
+
 toastr.options.positionClass = "toast-top-center";
 
 (function(){
@@ -73,6 +83,10 @@ function init() {
 	//show/hide elements
 	$('#statusBar').show();
 	$('#buttbar').remove();
+
+	//add 2 events
+	data.push(eventData.splice(Math.floor(Math.random() * eventData.length), 1));
+	data.push(eventData.splice(Math.floor(Math.random() * eventData.length), 1));
 
 	//populate images
 	while (data.length > 0) {
