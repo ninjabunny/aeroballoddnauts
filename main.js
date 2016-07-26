@@ -37,6 +37,8 @@ var piratesData = [
 	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pirates-riggingbots.jpg",
 	"http://themaverickmuse.com/wp-content/uploads/2014/10/oba-card-pirates-botlettii.jpg",
 	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pirates-riggers.jpg",
+	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pirates-riggers.jpg",
+	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pirates-riggers.jpg",
 	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pirates-deckers.jpg",
 	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pirates-deckers.jpg",
 	"http://themaverickmuse.com/wp-content/uploads/2014/09/oba-card-pirates-deckers.jpg",
